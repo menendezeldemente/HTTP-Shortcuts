@@ -2,6 +2,7 @@ package ch.rmy.android.http_shortcuts.import_export
 
 import android.content.Context
 import android.net.Uri
+import ch.rmy.android.framework.extensions.applyIf
 import ch.rmy.android.framework.extensions.logException
 import ch.rmy.android.framework.extensions.runFor
 import ch.rmy.android.framework.extensions.runIf
@@ -11,7 +12,6 @@ import ch.rmy.android.framework.utils.FileUtil
 import ch.rmy.android.http_shortcuts.data.domains.app.AppRepository
 import ch.rmy.android.http_shortcuts.data.domains.shortcuts.ShortcutId
 import ch.rmy.android.http_shortcuts.data.domains.variables.VariableId
-import ch.rmy.android.http_shortcuts.data.domains.working_directories.WorkingDirectoryId
 import ch.rmy.android.http_shortcuts.data.enums.ClientCertParams
 import ch.rmy.android.http_shortcuts.data.models.Base
 import ch.rmy.android.http_shortcuts.data.models.Category
@@ -25,6 +25,7 @@ import ch.rmy.android.http_shortcuts.data.models.Shortcut
 import ch.rmy.android.http_shortcuts.data.models.Variable
 import ch.rmy.android.http_shortcuts.data.models.WorkingDirectory
 import ch.rmy.android.http_shortcuts.usecases.GetUsedCustomIconsUseCase
+import ch.rmy.android.http_shortcuts.usecases.GetUsedWorkingDirectoryIdsUseCase
 import ch.rmy.android.http_shortcuts.utils.GsonUtil
 import io.realm.kotlin.ext.copyFromRealm
 import kotlinx.coroutines.CancellationException
@@ -43,6 +44,7 @@ constructor(
     private val context: Context,
     private val appRepository: AppRepository,
     private val getUsedCustomIcons: GetUsedCustomIconsUseCase,
+    private val getUsedWorkingDirectoryIds: GetUsedWorkingDirectoryIdsUseCase,
 ) {
 
     suspend fun exportToUri(
@@ -53,13 +55,15 @@ constructor(
         excludeDefaults: Boolean = false,
         excludeVariableValuesIfNeeded: Boolean = true,
     ): ExportStatus {
-        val base = getBase(shortcutIds, variableIds)
-        if (excludeVariableValuesIfNeeded) {
-            base.variables.forEach { variable ->
-                if (variable.isExcludeValueFromExport) {
-                    variable.value = ""
+        val base = withContext(Dispatchers.Default) {
+            getBase(shortcutIds, variableIds)
+                .applyIf(excludeVariableValuesIfNeeded) {
+                    variables.forEach { variable ->
+                        if (variable.isExcludeValueFromExport) {
+                            variable.value = ""
+                        }
+                    }
                 }
-            }
         }
         return withContext(Dispatchers.IO) {
             when (format) {
@@ -119,15 +123,12 @@ constructor(
             base.variables.safeRemoveIf { it.id !in variableIds }
         }
 
-        base.getUsedWorkingDirectoryIds().let { workingDirectoryIds ->
+        getUsedWorkingDirectoryIds(base).let { workingDirectoryIds ->
             base.workingDirectories.safeRemoveIf { it.id !in workingDirectoryIds }
         }
 
         return base
     }
-
-    private fun Base.getUsedWorkingDirectoryIds(): Collection<WorkingDirectoryId> =
-        shortcuts.mapNotNull { it.responseHandling?.storeDirectoryId }
 
     private suspend fun exportData(base: Base, writer: Appendable, excludeDefaults: Boolean = false) {
         withContext(Dispatchers.IO) {
