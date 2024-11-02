@@ -6,27 +6,32 @@ import ch.rmy.android.http_shortcuts.data.models.Variable
 import ch.rmy.android.http_shortcuts.variables.types.VariableTypeFactory
 import io.mockk.coEvery
 import io.mockk.every
+import io.mockk.impl.annotations.RelaxedMockK
+import io.mockk.junit5.MockKExtension
 import io.mockk.mockk
-import io.mockk.mockkObject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.extension.ExtendWith
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @ExperimentalCoroutinesApi
+@ExtendWith(MockKExtension::class)
 class VariableResolverTest {
+
+    @RelaxedMockK
+    private lateinit var variableTypeFactory: VariableTypeFactory
 
     private val resolutionOrder = mutableListOf<String>()
 
     @BeforeTest
     fun setUp() {
         resolutionOrder.clear()
-        mockkObject(VariableTypeFactory)
-        every { VariableTypeFactory.getType(any()) } answers {
+        every { variableTypeFactory.getType(any()) } answers {
             mockk {
-                coEvery { resolve(any(), any(), any()) } answers {
-                    val variable = secondArg<Variable>()
+                coEvery { resolve(any(), any()) } answers {
+                    val variable = firstArg<Variable>()
                     resolutionOrder.add(variable.id)
                     variable.value.orEmpty()
                 }
@@ -41,7 +46,7 @@ class VariableResolverTest {
                 Variable(id = "1234", key = "myVariable", value = "Hello World")
             )
         )
-        VariableResolver(mockk())
+        VariableResolver(variableTypeFactory)
             .resolve(
                 variableManager = variableManager,
                 requiredVariableIds = VariableResolver.extractVariableIdsExcludingScripting(
@@ -76,7 +81,7 @@ class VariableResolverTest {
                 Variable(id = "5678", key = "myVariable2", value = "World")
             )
         )
-        VariableResolver(mockk(relaxed = true))
+        VariableResolver(variableTypeFactory)
             .resolve(
                 variableManager = variableManager,
                 requiredVariableIds = VariableResolver.extractVariableIdsExcludingScripting(
@@ -160,7 +165,7 @@ class VariableResolverTest {
                 Variable(id = "789", key = "myVariable2", value = "World"),
             )
         )
-        VariableResolver(mockk(relaxed = true))
+        VariableResolver(variableTypeFactory)
             .resolve(
                 variableManager = variableManager,
                 requiredVariableIds = setOf("123", "456"),
@@ -190,7 +195,7 @@ class VariableResolverTest {
                 Variable(id = "789", key = "myVariable2", value = "!!!"),
             )
         )
-        VariableResolver(mockk(relaxed = true))
+        VariableResolver(variableTypeFactory)
             .resolve(
                 variableManager = variableManager,
                 requiredVariableIds = setOf("123"),
@@ -214,7 +219,7 @@ class VariableResolverTest {
                 Variable(id = "123", key = "myVariable1", value = "Hello {{123}}"),
             )
         )
-        VariableResolver(mockk(relaxed = true))
+        VariableResolver(variableTypeFactory)
             .resolve(
                 variableManager = variableManager,
                 requiredVariableIds = setOf("123"),

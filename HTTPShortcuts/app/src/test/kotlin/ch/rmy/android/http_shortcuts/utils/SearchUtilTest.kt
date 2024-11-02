@@ -7,10 +7,10 @@ class SearchUtilTest {
 
     @Test
     fun `normalize keywords`() {
-        val input = "Show a Selection (Multiple-Choice)"
+        val input = "Show a Selection (Multiple-Choice) of things"
         val result = SearchUtil.normalizeToKeywords(input)
         assertEquals(
-            setOf("show", "selection", "multiple", "choice"),
+            setOf("show", "selection", "multiple", "choice", "things", "thing"),
             result,
         )
     }
@@ -30,7 +30,7 @@ class SearchUtilTest {
         val input = "I want all of the words in a sentence"
         val result = SearchUtil.normalizeToKeywords(input, minLength = 1)
         assertEquals(
-            setOf("i", "want", "all", "of", "the", "words", "in", "a", "sentence"),
+            setOf("i", "want", "all", "of", "the", "words", "word", "in", "a", "sentence"),
             result,
         )
     }

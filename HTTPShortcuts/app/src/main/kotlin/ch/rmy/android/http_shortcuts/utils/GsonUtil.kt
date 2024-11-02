@@ -37,7 +37,7 @@ object GsonUtil {
 
     fun extractErrorMessage(e: JsonParseException): String? =
         (e.cause as? MalformedJsonException)?.message
-            ?.removePrefix("Use JsonReader.setLenient(true) to accept ")
+            ?.removePrefix("Use JsonReader.setStrictness(Strictness.LENIENT) to accept ")
             ?.split("\nSee https")
             ?.first()
             ?.replaceFirstChar { it.uppercaseChar() }
