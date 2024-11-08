@@ -119,6 +119,10 @@ constructor(
         get() = getBoolean(KEY_HISTORY_USE_RELATIVE_TIMES)
         set(value) = putBoolean(KEY_HISTORY_USE_RELATIVE_TIMES, value)
 
+    var isAwareOfResponseHandling: Boolean
+        get() = getBoolean(KEY_AWARE_ON_RESPONSE_HANDLING)
+        set(value) = putBoolean(KEY_AWARE_ON_RESPONSE_HANDLING, value)
+
     private val _colorThemeFlow = MutableStateFlow(colorTheme)
     val colorThemeFlow = _colorThemeFlow.asStateFlow()
 
@@ -150,5 +154,6 @@ constructor(
         private const val KEY_COLOR_THEME = "color_theme"
         private const val KEY_HISTORY_USE_RELATIVE_TIMES = "history_relative_times"
         private const val KEY_MALFORMED_JSON_WARNING_PERMANENTLY_HIDDEN = "malformed_json_warning_permanently_hidden"
+        private const val KEY_AWARE_ON_RESPONSE_HANDLING = "aware_of_response_handling"
     }
 }

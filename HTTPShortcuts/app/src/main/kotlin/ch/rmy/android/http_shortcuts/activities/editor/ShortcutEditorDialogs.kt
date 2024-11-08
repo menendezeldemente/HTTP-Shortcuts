@@ -5,6 +5,7 @@ import androidx.compose.ui.res.stringResource
 import ch.rmy.android.http_shortcuts.R
 import ch.rmy.android.http_shortcuts.components.DiscardWarningDialog
 import ch.rmy.android.http_shortcuts.components.IconPickerDialog
+import ch.rmy.android.http_shortcuts.components.MessageDialog
 import ch.rmy.android.http_shortcuts.icons.ShortcutIcon
 
 @Composable
@@ -32,6 +33,12 @@ fun ShortcutEditorDialogs(
                 onIconSelected = onIconSelected,
                 onFaviconOptionSelected = onFaviconOptionSelected.takeIf { dialogState.includeFaviconOption },
                 onDismissRequested = onDismiss,
+            )
+        }
+        is ShortcutEditorDialogState.ResponseHandlingWarning -> {
+            MessageDialog(
+                message = stringResource(R.string.warning_make_aware_of_response_handling, stringResource(R.string.label_response_handling)),
+                onDismissRequest = onDismiss,
             )
         }
         null -> Unit

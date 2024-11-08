@@ -37,6 +37,7 @@ import ch.rmy.android.http_shortcuts.navigation.NavigationArgStore
 import ch.rmy.android.http_shortcuts.navigation.NavigationDestination
 import ch.rmy.android.http_shortcuts.scripting.shortcuts.TriggerShortcutManager
 import ch.rmy.android.http_shortcuts.utils.LauncherShortcutUpdater
+import ch.rmy.android.http_shortcuts.utils.Settings
 import ch.rmy.android.http_shortcuts.utils.Validation.isAcceptableHttpUrl
 import ch.rmy.android.http_shortcuts.utils.Validation.isAcceptableUrl
 import ch.rmy.android.http_shortcuts.widget.WidgetManager
@@ -64,6 +65,7 @@ constructor(
     private val launcherShortcutUpdater: LauncherShortcutUpdater,
     private val executionStarter: ExecutionStarter,
     private val navigationArgStore: NavigationArgStore,
+    private val settings: Settings,
 ) : BaseViewModel<ShortcutEditorViewModel.InitData, ShortcutEditorViewState>(application) {
 
     private var isSaving = false
@@ -336,6 +338,11 @@ constructor(
         if (!viewState.hasChanges) {
             skipAction()
         }
+        if (executionType == ShortcutExecutionType.APP && shortcutId == null && !settings.isAwareOfResponseHandling) {
+            settings.isAwareOfResponseHandling = true
+            updateDialogState(ShortcutEditorDialogState.ResponseHandlingWarning)
+            skipAction()
+        }
         isSaving = true
         waitForOperationsToFinish()
         trySave()
@@ -443,6 +450,7 @@ constructor(
     fun onResponseHandlingButtonClicked() = runAction {
         skipIfBusy()
         logInfo("Response handling button clicked")
+        settings.isAwareOfResponseHandling = true
         navigate(NavigationDestination.ShortcutEditorResponse)
     }
 

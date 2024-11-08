@@ -14,4 +14,7 @@ sealed class ShortcutEditorDialogState {
         val suggestionBase: String?,
         val includeFaviconOption: Boolean,
     ) : ShortcutEditorDialogState()
+
+    @Stable
+    data object ResponseHandlingWarning : ShortcutEditorDialogState()
 }

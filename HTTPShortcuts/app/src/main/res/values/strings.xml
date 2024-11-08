@@ -1685,4 +1685,6 @@
     <string name="message_shortcut_visible">Shortcut no longer hidden.</string>
     <!-- Title for dialog, when selecting a directory (to be used in Scripting) -->
     <string name="title_select_working_directory">Select Directory</string>
+    <!-- Warning message shown to user when saving their first shortcut, but not having opened the Response Handling screen -->
+    <string name="warning_make_aware_of_response_handling">Make sure to also check out the \“%s\” section, where you can configure how or if the HTTP response should be displayed.</string>
 </resources>
