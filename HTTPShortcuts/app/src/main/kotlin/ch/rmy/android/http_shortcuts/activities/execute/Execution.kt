@@ -146,7 +146,7 @@ class Execution(
         shortcut.getSafeName(context)
     }
 
-    suspend fun execute(): Flow<ExecutionStatus> = flow {
+    fun execute(): Flow<ExecutionStatus> = flow {
         logInfo("Beginning to execute shortcut (${params.shortcutId}, trigger=${params.trigger ?: "unknown"})")
         sessionMonitor.onSessionStarted()
         emit(ExecutionStatus.Preparing)

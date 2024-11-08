@@ -22,7 +22,7 @@ object Validation {
                 uri.scheme?.let { scheme ->
                     scheme.equals("http", ignoreCase = true) ||
                         scheme.equals("https", ignoreCase = true)
-                } ?: false
+                } == true
                 )
 
     fun isValidInHeaderName(c: Char): Boolean =

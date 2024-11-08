@@ -1,6 +1,5 @@
 package ch.rmy.android.http_shortcuts.activities.main
 
-import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
@@ -213,7 +212,7 @@ class MainActivity : BaseComposeActivity() {
                 .setAction(ACTION_SELECT_SHORTCUT_FOR_PLUGIN)
 
         override fun parseResult(resultCode: Int, intent: Intent?): Result? =
-            if (resultCode == Activity.RESULT_OK && intent != null) {
+            if (resultCode == RESULT_OK && intent != null) {
                 Result(
                     shortcutId = intent.getStringExtra(EXTRA_SELECTION_ID)!!,
                     shortcutName = intent.getStringExtra(EXTRA_SELECTION_NAME)!!,

@@ -17,7 +17,7 @@ constructor(
             action = setWireguardTunnelStateAction,
             params = SetWireguardTunnelStateAction.Params(
                 tunnel = actionDTO.getString(0) ?: "",
-                state = actionDTO.getBoolean(1) ?: true,
+                state = actionDTO.getBoolean(1) != false,
             ),
         )
 

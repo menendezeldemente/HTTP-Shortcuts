@@ -22,8 +22,7 @@ constructor(
     fun isNetworkConnected(): Boolean =
         context.getSystemService<ConnectivityManager>()
             ?.activeNetworkInfo
-            ?.isConnected
-            ?: false
+            ?.isConnected == true
 
     fun isNetworkPerformanceRestricted() =
         restrictionsUtil.isDataSaverModeEnabled() || restrictionsUtil.isBatterySaverModeEnabled()

@@ -17,7 +17,7 @@ constructor(
             action = vibrateAction,
             params = VibrateAction.Params(
                 patternId = actionDTO.getInt(0) ?: 0,
-                waitForCompletion = actionDTO.getBoolean(1) ?: false,
+                waitForCompletion = actionDTO.getBoolean(1) == true,
             ),
         )
 

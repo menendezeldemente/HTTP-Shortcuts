@@ -80,7 +80,7 @@ constructor() {
                     if (it.host.equals(requestingHost, ignoreCase = true) && it.port == requestingPort) {
                         return PasswordAuthentication(it.username, it.password.toCharArray())
                     }
-                    return super.getPasswordAuthentication()
+                    return super.passwordAuthentication
                 }
             })
             try {

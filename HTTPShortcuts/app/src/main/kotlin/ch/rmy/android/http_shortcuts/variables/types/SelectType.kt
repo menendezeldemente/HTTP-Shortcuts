@@ -51,7 +51,7 @@ constructor(
         const val KEY_SEPARATOR = "separator"
 
         fun isMultiSelect(variable: Variable) =
-            variable.dataForType[KEY_MULTI_SELECT]?.toBoolean() ?: false
+            variable.dataForType[KEY_MULTI_SELECT]?.toBoolean() == true
 
         fun getSeparator(variable: Variable) =
             variable.dataForType[KEY_SEPARATOR] ?: ","

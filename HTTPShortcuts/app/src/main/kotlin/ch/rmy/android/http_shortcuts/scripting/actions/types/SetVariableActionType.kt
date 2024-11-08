@@ -18,7 +18,7 @@ constructor(
             params = SetVariableAction.Params(
                 variableKeyOrId = actionDTO.getString(0) ?: "",
                 value = actionDTO.getString(1) ?: "",
-                storeOnly = actionDTO.getBoolean(2) ?: false,
+                storeOnly = actionDTO.getBoolean(2) == true,
             ),
         )
 

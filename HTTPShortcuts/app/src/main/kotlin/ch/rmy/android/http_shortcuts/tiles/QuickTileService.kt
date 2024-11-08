@@ -146,12 +146,9 @@ class QuickTileService : TileService() {
             return false
         }
         val variableIds = VariableResolver.extractVariableIdsExcludingScripting(this)
-        if (variableIds.isNotEmpty()) {
-            // If a shortcut uses any variables, we cannot know whether those variables can be resolved
-            // without the ExecuteActivity being present, so we have to err on the side of caution.
-            return false
-        }
-        return true
+        // If a shortcut uses any variables, we cannot know whether those variables can be resolved
+        // without the ExecuteActivity being present, so we have to err on the side of caution.
+        return variableIds.isEmpty()
     }
 
     override fun onStartListening() {

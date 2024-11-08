@@ -20,14 +20,12 @@ constructor(
 
     fun isBatterySaverModeEnabled(): Boolean =
         context.getSystemService<PowerManager>()
-            ?.isPowerSaveMode
-            ?: false
+            ?.isPowerSaveMode == true
 
     fun isDataSaverModeEnabled(): Boolean =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             context.getSystemService<ConnectivityManager>()
-                ?.run { isActiveNetworkMetered && restrictBackgroundStatus == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED }
-                ?: false
+                ?.run { isActiveNetworkMetered && restrictBackgroundStatus == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED } == true
         } else false
 
     fun getRequestIgnoreBatteryOptimizationIntent(): Intent =
@@ -35,8 +33,7 @@ constructor(
 
     fun isIgnoringBatteryOptimizations(): Boolean =
         context.getSystemService<PowerManager>()
-            ?.isIgnoringBatteryOptimizations(packageName)
-            ?: true
+            ?.isIgnoringBatteryOptimizations(packageName) != false
 
     fun hasPermissionEditor() =
         Build.MANUFACTURER?.equals("xiaomi", ignoreCase = true) == true
