@@ -41,6 +41,7 @@ import ch.rmy.android.http_shortcuts.utils.LauncherShortcutManager
 import ch.rmy.android.http_shortcuts.utils.LauncherShortcutUpdater
 import ch.rmy.android.http_shortcuts.utils.SecondaryLauncherManager
 import ch.rmy.android.http_shortcuts.utils.Settings
+import ch.rmy.android.http_shortcuts.utils.VersionUtil
 import ch.rmy.android.http_shortcuts.variables.VariablePlaceholderProvider
 import ch.rmy.android.http_shortcuts.widget.WidgetManager
 import ch.rmy.curlcommand.CurlCommand
@@ -80,6 +81,7 @@ constructor(
     private val variableRepository: VariableRepository,
     private val variablePlaceholderProvider: VariablePlaceholderProvider,
     private val settings: Settings,
+    private val versionUtil: VersionUtil,
     private val unlockApp: UnlockAppUseCase,
     private val navigationArgStore: NavigationArgStore,
 ) : BaseViewModel<MainViewModel.InitData, MainViewState>(application) {
@@ -94,6 +96,12 @@ constructor(
     override suspend fun initialize(data: InitData): MainViewState {
         val categoriesFlow = categoryRepository.getObservableCategories()
         this.categories = categoriesFlow.first()
+
+        viewModelScope.launch(Dispatchers.Default) {
+            if (settings.firstSeenVersionCode == null) {
+                settings.firstSeenVersionCode = versionUtil.getVersionCode()
+            }
+        }
 
         viewModelScope.launch(Dispatchers.Default) {
             // Ensure that the VariablePlaceholderProvider is initialized

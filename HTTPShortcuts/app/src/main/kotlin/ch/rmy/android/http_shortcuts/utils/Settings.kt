@@ -20,16 +20,20 @@ constructor(
 ) : PreferencesStore(context) {
 
     val deviceId: String
-        get() = getString(DEVICE_ID)
+        get() = getString(KEY_DEVICE_ID)
             ?: run {
                 UUIDUtils.newUUID()
                     .uppercase()
                     .replace("-", "")
                     .take(20)
                     .also {
-                        putString(DEVICE_ID, it)
+                        putString(KEY_DEVICE_ID, it)
                     }
             }
+
+    var firstSeenVersionCode: Long?
+        get() = getLong(KEY_FIRST_SEEN_VERSION_CODE)
+        set(value) = putLong(KEY_FIRST_SEEN_VERSION_CODE, value ?: 0L)
 
     var language: String?
         get() = getString(KEY_LANGUAGE)?.takeUnless { it == LANGUAGE_DEFAULT }
@@ -134,7 +138,8 @@ constructor(
         const val DARK_THEME_OFF = "off"
         const val DARK_THEME_AUTO = "auto"
 
-        private const val DEVICE_ID = "device_id"
+        private const val KEY_DEVICE_ID = "device_id"
+        private const val KEY_FIRST_SEEN_VERSION_CODE = "first_version_code"
         private const val KEY_LANGUAGE = "language"
         private const val KEY_CLICK_BEHAVIOR = "click_behavior"
         private const val KEY_SHOW_HIDDEN_SHORTCUTS = "show_hidden_shortcuts"
