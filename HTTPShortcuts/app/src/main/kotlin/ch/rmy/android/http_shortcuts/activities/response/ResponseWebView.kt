@@ -35,6 +35,7 @@ import kotlin.time.Duration.Companion.milliseconds
 fun ResponseBrowser(
     text: String,
     baseUrl: String?,
+    javaScriptEnabled: Boolean = false,
     onExternalUrl: (Uri) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -76,6 +77,7 @@ fun ResponseBrowser(
                     isLoading = false
                 }
                 webView.onExternalUrl = onExternalUrl
+                webView.javaScriptEnabled = javaScriptEnabled
                 webView.loadFromString(text, baseUrl)
                 webView
             },
@@ -93,6 +95,11 @@ class ResponseWebView @JvmOverloads constructor(
 
     var onLoaded: () -> Unit = {}
     var onExternalUrl: (Uri) -> Unit = {}
+    var javaScriptEnabled: Boolean
+        get() = settings.javaScriptEnabled
+        set(value) {
+            settings.javaScriptEnabled = value
+        }
 
     init {
         webViewClient = object : WebViewClient() {

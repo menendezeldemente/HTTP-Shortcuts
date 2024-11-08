@@ -97,6 +97,7 @@ fun DisplayResponseContent(
     fontSize: Int?,
     showExternalUrlWarning: Boolean,
     tableData: TableData?,
+    javaScriptEnabled: Boolean,
     processing: Boolean,
     onExternalUrlWarningHidden: (Boolean) -> Unit,
 ) {
@@ -128,6 +129,7 @@ fun DisplayResponseContent(
                 showExternalUrlWarning = showExternalUrlWarning,
                 tableData = tableData,
                 processing = processing,
+                javaScriptEnabled = javaScriptEnabled,
                 onExternalUrlWarningHidden = onExternalUrlWarningHidden,
             )
 
@@ -270,6 +272,7 @@ private fun ResponseDisplay(
     fontSize: TextUnit,
     showExternalUrlWarning: Boolean,
     processing: Boolean,
+    javaScriptEnabled: Boolean,
     tableData: TableData?,
     onExternalUrlWarningHidden: (Boolean) -> Unit,
 ) {
@@ -311,8 +314,9 @@ private fun ResponseDisplay(
                 mutableStateOf<Uri?>(null)
             }
             ResponseBrowser(
-                text,
-                url?.toString(),
+                text = text,
+                baseUrl = url?.toString(),
+                javaScriptEnabled = javaScriptEnabled,
                 onExternalUrl = {
                     if (showExternalUrlWarning) {
                         externalUrl = it

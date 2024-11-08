@@ -129,6 +129,7 @@ constructor(
             canCopy = responseText.isNotEmpty() && responseText.length < MAX_COPY_LENGTH,
             canSave = responseData.fileUri != null,
             showExternalUrlWarning = !settings.isExternalUrlWarningPermanentlyHidden,
+            javaScriptEnabled = responseData.javaScriptEnabled,
             processing = processing,
         )
     }

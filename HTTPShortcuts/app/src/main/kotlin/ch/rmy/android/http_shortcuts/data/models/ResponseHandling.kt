@@ -44,6 +44,7 @@ class ResponseHandling() : EmbeddedRealmObject {
     var jsonArrayAsTable: Boolean = true
     var monospace: Boolean = false
     var fontSize: Int? = null
+    var javaScriptEnabled: Boolean = false
 
     var displayActions: List<ResponseDisplayAction>
         get() = actions.mapNotNull(ResponseDisplayAction::parse)
@@ -99,7 +100,8 @@ class ResponseHandling() : EmbeddedRealmObject {
             other.monospace == monospace &&
             other.fontSize == fontSize &&
             other.contentType == contentType &&
-            other.charset == charset
+            other.charset == charset &&
+            other.javaScriptEnabled == javaScriptEnabled
 
     companion object {
 

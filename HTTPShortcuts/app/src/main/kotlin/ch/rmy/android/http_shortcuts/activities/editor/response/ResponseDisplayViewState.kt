@@ -18,4 +18,5 @@ data class ResponseDisplayViewState(
     val includeMetaInformation: Boolean,
     val responseDisplayActions: List<ResponseDisplayAction>,
     val jsonArrayAsTable: Boolean,
+    val javaScriptEnabled: Boolean,
 )

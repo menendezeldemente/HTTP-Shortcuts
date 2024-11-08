@@ -482,6 +482,12 @@ constructor(
         }
     }
 
+    suspend fun setJavaScriptEnabled(javaScriptEnabled: Boolean) {
+        commitTransactionForResponseHandling { responseHandling ->
+            responseHandling.javaScriptEnabled = javaScriptEnabled
+        }
+    }
+
     suspend fun importFromCurl(curlCommand: CurlCommand) {
         commitTransactionForShortcut { shortcut ->
             shortcut.method = curlCommand.method

@@ -676,11 +676,12 @@ class Execution(
                         // because it would interrupt the execution. Therefore, we suppress it here.
                         return@withContext
                     }
+                    val responseHandling = shortcut.responseHandling
                     val responseData = ResponseData(
                         shortcutId = shortcut.id,
                         shortcutName = shortcutName,
                         text = output,
-                        mimeType = when (shortcut.responseHandling?.responseContentType) {
+                        mimeType = when (responseHandling?.responseContentType) {
                             ResponseContentType.PLAIN_TEXT -> FileTypeUtil.TYPE_PLAIN_TEXT
                             ResponseContentType.JSON -> FileTypeUtil.TYPE_JSON
                             ResponseContentType.XML -> FileTypeUtil.TYPE_XML
@@ -693,11 +694,12 @@ class Execution(
                         statusCode = response?.statusCode,
                         headers = response?.headers?.toMultiMap() ?: emptyMap(),
                         timing = response?.timing,
-                        showDetails = shortcut.responseHandling?.includeMetaInfo == true,
-                        monospace = shortcut.responseHandling?.monospace == true,
-                        fontSize = shortcut.responseHandling?.fontSize,
-                        actions = shortcut.responseHandling?.displayActions ?: emptyList(),
-                        jsonArrayAsTable = shortcut.responseHandling?.jsonArrayAsTable == true,
+                        showDetails = responseHandling?.includeMetaInfo == true,
+                        monospace = responseHandling?.monospace == true,
+                        fontSize = responseHandling?.fontSize,
+                        actions = responseHandling?.displayActions ?: emptyList(),
+                        jsonArrayAsTable = responseHandling?.jsonArrayAsTable == true,
+                        javaScriptEnabled = responseHandling?.javaScriptEnabled == true,
                     )
                     val responseDataId = navigationArgStore.storeArg(responseData)
                     DisplayResponseActivity.IntentBuilder(shortcutName, responseDataId)

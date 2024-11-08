@@ -37,6 +37,7 @@ fun ResponseDisplayContent(
     useMonospaceFont: Boolean,
     fontSize: Int?,
     jsonArrayAsTable: Boolean,
+    javaScriptEnabled: Boolean,
     onResponseContentTypeChanged: (ResponseContentType?) -> Unit,
     onResponseCharsetChanged: (Charset?) -> Unit,
     onDialogActionChanged: (ResponseDisplayAction?) -> Unit,
@@ -45,6 +46,7 @@ fun ResponseDisplayContent(
     onUseMonospaceFontChanged: (Boolean) -> Unit,
     onFontSizeChanged: (Int?) -> Unit,
     onJsonArrayAsTableChanged: (Boolean) -> Unit,
+    onJavaScriptEnabledChanged: (Boolean) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -111,6 +113,15 @@ fun ResponseDisplayContent(
                     checked = includeMetaInformation,
                     onCheckedChange = onIncludeMetaInformationChanged,
                 )
+
+                AnimatedVisibility(visible = responseContentType == null || responseContentType == ResponseContentType.HTML) {
+                    Checkbox(
+                        label = stringResource(R.string.label_enable_javascript_in_webview),
+                        subtitle = stringResource(R.string.subtitle_enable_javascript_in_webview),
+                        checked = javaScriptEnabled,
+                        onCheckedChange = onJavaScriptEnabledChanged,
+                    )
+                }
             }
         }
 

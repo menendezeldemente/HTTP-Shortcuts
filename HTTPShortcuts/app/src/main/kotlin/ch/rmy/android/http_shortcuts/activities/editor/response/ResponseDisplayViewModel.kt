@@ -44,6 +44,7 @@ constructor(
             useMonospaceFont = responseHandling.monospace,
             fontSize = responseHandling.fontSize,
             jsonArrayAsTable = responseHandling.jsonArrayAsTable,
+            javaScriptEnabled = responseHandling.javaScriptEnabled,
         )
     }
 
@@ -143,6 +144,15 @@ constructor(
         }
         withProgressTracking {
             temporaryShortcutRepository.setJsonArrayAsTable(jsonArrayAsTable)
+        }
+    }
+
+    fun onJavaScriptEnabledChanged(enabled: Boolean) = runAction {
+        updateViewState {
+            copy(javaScriptEnabled = enabled)
+        }
+        withProgressTracking {
+            temporaryShortcutRepository.setJavaScriptEnabled(enabled)
         }
     }
 

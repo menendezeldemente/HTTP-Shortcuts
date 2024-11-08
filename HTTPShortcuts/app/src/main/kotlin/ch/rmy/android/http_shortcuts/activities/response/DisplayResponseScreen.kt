@@ -102,6 +102,7 @@ fun DisplayResponseScreen(
             fontSize = viewState.fontSize,
             showExternalUrlWarning = viewState.showExternalUrlWarning,
             tableData = viewState.tableData,
+            javaScriptEnabled = viewState.javaScriptEnabled,
             processing = viewState.processing,
             onExternalUrlWarningHidden = viewModel::onExternalUrlWarningHidden,
         )

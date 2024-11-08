@@ -35,6 +35,7 @@ fun ResponseDisplayScreen() {
             useMonospaceFont = viewState.useMonospaceFont,
             fontSize = viewState.fontSize,
             jsonArrayAsTable = viewState.jsonArrayAsTable,
+            javaScriptEnabled = viewState.javaScriptEnabled,
             onResponseContentTypeChanged = viewModel::onResponseContentTypeChanged,
             onResponseCharsetChanged = viewModel::onResponseCharsetChanged,
             onDialogActionChanged = viewModel::onDialogActionChanged,
@@ -43,6 +44,7 @@ fun ResponseDisplayScreen() {
             onUseMonospaceFontChanged = viewModel::onUseMonospaceFontChanged,
             onFontSizeChanged = viewModel::onFontSizeChanged,
             onJsonArrayAsTableChanged = viewModel::onJsonArrayAsTableChanged,
+            onJavaScriptEnabledChanged = viewModel::onJavaScriptEnabledChanged,
         )
     }
 

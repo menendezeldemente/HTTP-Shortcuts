@@ -23,5 +23,6 @@ data class DisplayResponseViewState(
     val isSaving: Boolean = false,
     val showExternalUrlWarning: Boolean,
     val tableData: TableData? = null,
+    val javaScriptEnabled: Boolean,
     val processing: Boolean = false,
 )

@@ -24,4 +24,5 @@ data class ResponseData(
     val fontSize: Int?,
     val actions: List<ResponseDisplayAction>,
     val jsonArrayAsTable: Boolean,
+    val javaScriptEnabled: Boolean,
 )
