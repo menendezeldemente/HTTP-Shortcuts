@@ -4,13 +4,13 @@
 - It is now possible to enable JavaScript as part of the response display window. This feature is experimental and it may not work for every website.
 - When selecting the "Read from File" or "Write to File" options from the Code Snippet picker in Scripting, there is now a picker to select the directory that should be used.
 
-### Miscellaneous
-- When creating your very first shortcut, a useful hint is now shown if you haven't opened the "Response Handling" section
-- Removed some broken icons
-
 ### Bugfixes
 - When exporting shortcuts that use the `getDirectory()` function in their Scripting, the directories are now also included in the export.
 - The F-Droid build, which stopped working in version 3.19.0, should now work again
+
+### Miscellaneous
+- When creating your very first shortcut, a useful hint is now shown if you haven't opened the "Response Handling" section
+- Removed some broken icons
 
 ## Version 3.19.0
 
@@ -28,25 +28,25 @@
 ### Improvements
 - In addition to `writeFile`, there is now also an `appendFile()` Scripting function which allows to append content to a file instead of fully replacing the file's content.
 
-### Miscellaneous
-- Rearranged some options on the "Response Handling" screen for clarity
-- The "Display JSON array as table" option is now enabled by default, and it now also applies if the response is a JSON object with a single key which holds a JSON array.
-
 ### Bugfixes
 - The `getDirectory(...).readFile()` and `getDirectory(...).writeFile()` Scripting function should now work as expected.
 - The "Allow receiving files from share dialog" checkbox now only shows for regular HTTP shortcuts instead of all shortcut types.
+
+### Miscellaneous
+- Rearranged some options on the "Response Handling" screen for clarity
+- The "Display JSON array as table" option is now enabled by default, and it now also applies if the response is a JSON object with a single key which holds a JSON array.
 
 ## Version 3.17.0
 
 ### Improvements
 - It is now possible to hide shortcuts inside the app, either manually or with the `setShortcutHidden` Scripting function.
 
+### Bugfixes
+- When using the `prompt()` function with a very long text, the text now properly scrolls instead of pushing the text input field off screen.
+
 ### Miscellaneous
 - Removed unnecessary details from malformed GSON error message
 - The size of the APK file is back to a more reasonable value, after having blown up unexpectedly for version 3.16.0
-
-### Bugfixes
-- When using the `prompt()` function with a very long text, the text now properly scrolls instead of pushing the text input field off screen.
 
 ## Version 3.16.0
 
@@ -56,15 +56,15 @@
 - Variables can now be configured such that their values are excluded from exports
 - In widgets, it is now possible to hide the icon, allowing the creation of text-only home screen widgets
 
-### Miscellaneous
-- Android 5 is no longer supported. Android 6 is the new minimum supported Android version.
-- The maximum length for static variables is increased to 40'000 characters.
-- I'm beginning to phase out the feature that allows having variable placeholders inside static variables. Let me know if you see a problem with that.
-
 ### Bugfixes
 - The label in widgets is now aligned such that multiple widgets placed next to each other with varying label lengths still look nice
 - Links to documentation now open in the browser instead of crashing when no web view is available
 - Fixed a few crashes that would occur during app startup in some rare cases
+
+### Miscellaneous
+- Android 5 is no longer supported. Android 6 is the new minimum supported Android version.
+- The maximum length for static variables is increased to 40'000 characters.
+- I'm beginning to phase out the feature that allows having variable placeholders inside static variables. Let me know if you see a problem with that.
 
 ## Version 3.15.0
 
@@ -101,11 +101,11 @@
 - The curl import now supports the `--head` parameter
 - Various small tweaks to the UI here and there to improve clarity, performance, and to make it more consistent
 
-### Miscellaneous
-- The Event History now shows up to 12 hours of data instead of only 8
-
 ### Bugfixes
 - Fixed a crash that occasionally happened when testing shortcuts
+
+### Miscellaneous
+- The Event History now shows up to 12 hours of data instead of only 8
 
 ## Version 3.12.1
 
@@ -121,13 +121,13 @@
 - In Scripting, it is now possible to get the ID and name of the category the current shortcut belongs to
 - Some tweaks to the built-in documentation were made to make it easier to understand
 
-### Miscellaneous
-- Newly created shortcuts now have the "Show as app shortcut on launcher" option enabled by default, for easier integration with other apps
-
 ### Bugfixes
 - The `getClipboarContent()` function should now also work when using the experimental background execution setting
 - The `parseHtml()` function now also works for reading the content of `<script>` and `<style>` tags
 - When saving changes to Global Scripting, the screen now properly closes without showing the discard warning
+
+### Miscellaneous
+- Newly created shortcuts now have the "Show as app shortcut on launcher" option enabled by default, for easier integration with other apps
 
 ## Version 3.11.1
 
@@ -143,12 +143,12 @@
 - When opening a custom tab with the `openUrl()` function, it now shows the Share button
 - When the HTTP response is an image and it is displayed using the Fullscreen Window option, it is now possible to zoom in on the image
 
-### Miscellaneous
-- There is now an experimental setting, which lets you change the execution mode of all shortcuts from running in the foreground (i.e. by showing the spinner animation during execution) to running in the background (i.e., no spinner). If you try it out and discover problems, or if you try it out for a longer time and find no problems, please let me know.
-
 ### Bugfixes
 - Hitting the back button while viewing the in-app documentation will now first close the search instead of navigating back to the previous page
 - When a text input field is automatically selected, the soft keyboard should now show up more reliably
+
+### Miscellaneous
+- There is now an experimental setting, which lets you change the execution mode of all shortcuts from running in the foreground (i.e. by showing the spinner animation during execution) to running in the background (i.e., no spinner). If you try it out and discover problems, or if you try it out for a longer time and find no problems, please let me know.
 
 ## Version 3.10.0
 
@@ -157,11 +157,11 @@
 - The `openUrl` Scripting function can now be used to target a specific browser, or to open a URL in custom tabs
 - When using the quick settings tile with only a single shortcut, and that shortcut uses a built-in icon with a distinct silhouette, the quick settings tile will use the shortcut's icon instead of displaying the default icon
 
-### Miscellaneous
-- When selecting a custom image and using the "circle" shape, an uncropped version of the image is preserved for better icon quality when placed on the home screen
-
 ### Bugfixes
 - In the cURL import & export, digest authentication now properly uses `--digest`
+
+### Miscellaneous
+- When selecting a custom image and using the "circle" shape, an uncropped version of the image is preserved for better icon quality when placed on the home screen
 
 ## Version 3.9.0
 
@@ -170,13 +170,13 @@
 - Built-in icons are now treated as adaptive icons, allowing them to have nicer backgrounds when placed on the home screen of devices that support this
 - It is now possible to search for text in the built-in documentation pages
 
-### Miscellaneous
-- When an HTML response tries to open a URL, either because of a redirect or a clicked link, it will first warn about the use of an external browser
-
 ### Bugfixes
 - `<sub>` tags in HTML responses are no longer incorrectly displayed as superscript
 - Variable value resolution no longer fails under some rare conditions
 - Fixed a crash that would happen when trying to display a 1000+ lines plain text response
+
+### Miscellaneous
+- When an HTML response tries to open a URL, either because of a redirect or a clicked link, it will first warn about the use of an external browser
 
 ## Version 3.8.0
 
@@ -219,15 +219,15 @@
 - Performance improvements for the syntax highlighting for the Scripting feature and the editing of JSON request bodies
 - Added an option to the Troubleshooting section in the settings that allows canceling all pending shortcut executions at once
 
-### Miscellaneous
-- Lots and lots of cleanup and refactoring under the hood. If you find bugs, let me know.
-- Minor cleanup of UI of the Response Handling screen
-- Removed the option to export using the legacy JSON format
-
 ### Bugfixes
 - Variable now also respect the URL- and JSON-encode setting when a value for them is being shared into the app
 - The app can now properly detect whether Tasker is installed, to advertise the `triggerTaskerTask` function on the code snippet screen.
 - It is no longer possible to add invalid characters into the global user-agent
+
+### Miscellaneous
+- Lots and lots of cleanup and refactoring under the hood. If you find bugs, let me know.
+- Minor cleanup of UI of the Response Handling screen
+- Removed the option to export using the legacy JSON format
 
 ## Version 3.4.0
 
@@ -238,11 +238,11 @@
 - The icon picker shows the previously selected icon at the top for easier re-use and re-coloring
 - The `getLocation()` function can now also be used without Play Services (though the result may be less accurate and less reliable)
 
-### Miscellaneous
-- The screenshots in the bundled-in documentation were updated
-
 ### Bugfixes
 - Long responses displayed in a dialog are now scrollable
+
+### Miscellaneous
+- The screenshots in the bundled-in documentation were updated
 
 ## Version 3.3.0
 
@@ -262,13 +262,13 @@
 - There is now a `promptNumber` function available for Scripting, which allows to request the input of a number
 - In addition to a simple confirmation prompt, shortcuts can now be configured to require biometric confirmation before execution
 
-### Miscellaneous
-- Added documentation for the use of permissions
-
 ### Bugfixes
 - HTTP responses encoded with Brotli can now be uncompressed and displayed correctly
 - Horizontal scrolling in large HTML responses is smoother now
 - Long section titles on the Settings screen are no longer cropped
+
+### Miscellaneous
+- Added documentation for the use of permissions
 
 ## Version 3.1.0
 
@@ -311,17 +311,17 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - When picking the color for an icon you now see a preview of the icon in that color
 - The Event History now also shows a timestamp's seconds when the event is expanded
 
-### Miscellaneous
-- Previously, when importing shortcuts, it was only possible to import shortcuts that were exported by the same or an older version of the app. It is now possible to also import shortcuts from a newer version, provided compatibility can be guaranteed.
-- The Event History was moved out of the main menu into the Troubleshooting section on the Settings screen
-- The feature for moving shortcuts was reworked. It is now easier to move shortcuts between categories.
-- The recursion limits for shortcuts triggering other shortcuts were loosened. Previously, the execution would be cancelled after 5 recursion steps, now instead it will just include an artificial delay after 10 steps. This gives you more control and flexibility and still allows you to manually cancel an accidental infinite loop.
-
 ### Bugfixes
 - When displaying an HTTP response, the charset provided in the response headers is now taken into account instead of always defaulting to UTF-8
 - Text with variable placeholders in it can now be copied from one field to another without losing the placeholders
 - In the Scripting feature, putting block comments around a piece of code that contains variable placeholders no longer leads to syntax errors during execution
 - The MDNS host resolution now no longer just waits without doing anything and might actually resolve the host
+
+### Miscellaneous
+- Previously, when importing shortcuts, it was only possible to import shortcuts that were exported by the same or an older version of the app. It is now possible to also import shortcuts from a newer version, provided compatibility can be guaranteed.
+- The Event History was moved out of the main menu into the Troubleshooting section on the Settings screen
+- The feature for moving shortcuts was reworked. It is now easier to move shortcuts between categories.
+- The recursion limits for shortcuts triggering other shortcuts were loosened. Previously, the execution would be cancelled after 5 recursion steps, now instead it will just include an artificial delay after 10 steps. This gives you more control and flexibility and still allows you to manually cancel an accidental infinite loop.
 
 ### Removed
 - The app no longer supports different themes and instead just uses one default theme.
@@ -334,13 +334,13 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - When creating a home screen shortcut to a category, you can now choose an icon for it
 - When parsing CURL commands, the `--data-raw` flag is now supported
 
-### Miscellaneous
-- Minor change to the order in which variables are resolved when executing a shortcut: When a variable references another variable, the referenced variable is now resolved immediately afterwards instead of at the end
-- If a shortcut is simple enough (i.e., no Scripting, variables, use of files, ...), it will now launch faster and with less UI flashing when triggered from the quick settings tile
-
 ### Bugfixes
 - Fixed an error message popping up occasionally when combining Scripting, repetition and the "Wait for internet" feature in a single shortcut
 - When selecting a content-type from the suggestions popup, it is now properly stored instead of sometimes being ignored
+
+### Miscellaneous
+- Minor change to the order in which variables are resolved when executing a shortcut: When a variable references another variable, the referenced variable is now resolved immediately afterwards instead of at the end
+- If a shortcut is simple enough (i.e., no Scripting, variables, use of files, ...), it will now launch faster and with less UI flashing when triggered from the quick settings tile
 
 ## Version 2.30.0
 
@@ -359,25 +359,25 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - You can now log custom events into the Event History via the `logEvent()` function, allowing for better troubleshooting
 - The `setVariable()` function now allows you to change the stored value of a variable while still allowing the variable to be resolved normally afterwards. Simply pass `true` as the third parameter. This is useful if you want to change the preset / previously used value of a variable for which "Remember value" is enabled.
 
-### Miscellaneous
-- The Event History will now heuristically try to remove tokens and secrets from the HTTP headers it displays
-- The Privacy Policy can now be accessed more easily through the built-in documentation
-
 ### Bugfixes
 - Tables in the built-in documentation are now properly displayed
 - Fixed a crash when trying to edit a shortcut with device language set to Spanish
+
+### Miscellaneous
+- The Event History will now heuristically try to remove tokens and secrets from the HTTP headers it displays
+- The Privacy Policy can now be accessed more easily through the built-in documentation
 
 ## Version 2.28.0
 
 ### Improvements
 - When dealing with image files, you now have access to some meta data such as orientation and time of creation via the Scripting feature
 
-### Miscellaneous
-- A number of minor tweaks to animations and behavior improvements for text fields
-
 ### Bugfixes
 - The app no longer shows up in Recent Apps after a shortcut was executed
 - Fixed a bug where under certain circumstances shortcuts would always fail when variable values were too large
+
+### Miscellaneous
+- A number of minor tweaks to animations and behavior improvements for text fields
 
 ## Version 2.27.0
 
@@ -387,14 +387,14 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - It is now possible to enable a secondary launcher app, which can be used to trigger shortcuts. This allows for workarounds on devices that can't make use of home screen shortcuts or widget.
 - Switching to other apps and back while a shortcut is executing is now possible
 
+### Bugfixes
+- Being unable to resolve a host is now treated as a regular error again, instead of an unexpected error
+- For streaming URLs (e.g. EventStream URLs), reaching the read timeout is no longer considered an error
+
 ### Miscellaneous
 - All variables are now resolved lazily, i.e., as late as possible and only when needed. The main difference this might make for you is that if you use `getVariable` or `setVariable` in a shortcut's "Run before Execution" Scripting, the order in which your variables are resolved might be different from before.
 - Additional documentation for some more advanced or hidden feature is now available
 - Clean-up work running in the background is now more considerate with memory and battery use
-
-### Bugfixes
-- Being unable to resolve a host is now treated as a regular error again, instead of an unexpected error
-- For streaming URLs (e.g. EventStream URLs), reaching the read timeout is no longer considered an error
 
 ## Version 2.26.0
 
@@ -403,16 +403,16 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - Added `promptPassword()`, `promptColor()`, `promptDate()` and `promptTime()` functions to Scripting feature
 - Added lots of translations. Much of it was machine translated so it might not be accurate, feedback for improvements is welcome
 
-### Miscellaneous
-- Added better validation for shortcut import to better support externally edited or generated export files
-- The default color in the color picker is now white instead of black to make it possible to pick a new color without touching the brightness slider
-- The `hmac()` function now also accepts messages in byte array format instead of only strings
-
 ### Bugfixes
 - Fixed a crash when clicking the "Share" button on the response dialog
 - Fixed an issue where HTTP requests would fail when battery saver or data saver was enabled
 - Fixed the handling of arguments passed to `sendMqttMessages()`
 - Parameter-based request body is now also included when a custom content-type header is provided
+
+### Miscellaneous
+- Added better validation for shortcut import to better support externally edited or generated export files
+- The default color in the color picker is now white instead of black to make it possible to pick a new color without touching the brightness slider
+- The `hmac()` function now also accepts messages in byte array format instead of only strings
 
 ## Version 2.25.1
 
@@ -427,14 +427,14 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - You can now use the Scripting feature to send TCP packets and MQTT messages
 - Simple shortcuts now automatically run in "headless mode", meaning that the HTTP request is done in the background instead of you having to look at the loading indicator until the request is complete
 
-### Miscellaneous
-- Support for Ipack icons was removed
-- Many big changes under the hood, so there's a good chance some new bugs snuck in. Please let me know if you encounter any.
-
 ### Bugfixes
 - In many cases, triggering shortcuts from 3rd party apps wasn't working anymore on Android 13. This should now be fixed.
 - When using the Remote Editor, global scripting code is now correctly pulled instead of being ignored in some cases
 - When configuring a shortcut to run silently (i.e., neither response nor errors are displayed), the checkboxes for selecting the available actions are no longer shown, as they have no effect
+
+### Miscellaneous
+- Support for Ipack icons was removed
+- Many big changes under the hood, so there's a good chance some new bugs snuck in. Please let me know if you encounter any.
 
 ## Version 2.24.0
 
@@ -442,11 +442,11 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - You can now choose which action buttons are displayed on the fullscreen window that displays the HTTP response: rerun, share, copy, and save to file
 - Improved interaction with 3rd party camera apps, even when they're not playing by the rules
 
-### Miscellaneous
-- Added a '#' to the color picker dialog to make it clearer that it asks for an RGB hex value
-
 ### Bugfixes
 - Fixed the F-Droid build once again
+
+### Miscellaneous
+- Added a '#' to the color picker dialog to make it clearer that it asks for an RGB hex value
 
 ## Version 2.23.0
 
@@ -457,6 +457,11 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - All documentation is now bundled into the app, allowing you to read it even when offline and without having to leave the app
 - It is now possible to set up the quick settings tile directly from the settings screen (Android 13 only)
 
+### Bugfixes
+- Shortcuts with a delay are no longer delayed twice in a row when triggered from a Multi-Shortcut or via `enqueueShortcut()`
+- Browser shortcuts, Multi-shortcuts, and Scripting shortcuts no longer show the "Wait for connection" option, as it has no effect for them
+- Launcher shortcuts are now properly updated when shortcuts are duplicated or deleted
+
 ### Miscellaneous
 - Shortcut executions now always run in the foreground, which makes them more stable and avoids issues on Android 13
 - When using Multiple Choice variables with multiple selectable values, the result now reflects the order in which the options were selected
@@ -465,23 +470,18 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - Rearranged the settings a bit for more clarity
 - Re-added the language picker
 
-### Bugfixes
-- Shortcuts with a delay are no longer delayed twice in a row when triggered from a Multi-Shortcut or via `enqueueShortcut()`
-- Browser shortcuts, Multi-shortcuts, and Scripting shortcuts no longer show the "Wait for connection" option, as it has no effect for them
-- Launcher shortcuts are now properly updated when shortcuts are duplicated or deleted
-
 ## Version 2.22.0
 
 ### Improvements
 - When picking a built-in icon which consists of only one color, it is now possible to pick a custom color for it. This replaces the predefined colored circle icons.
 
-### Miscellaneous
-- Added some minor UI animations to the shortcut editor to make it clearer when new input elements become available
-
 ### Bugfixes
 - Variable and shortcut placeholders in Scripting can now be properly deleted via the backspace key, which previously occasionally would not work
 - It is now possible to fetch the favicon for a shortcut even when the shortcut's URL contains variable placeholders
 - When editing a shortcut and only changing the "Require Confirmation" checkbox, the Save button now appears as expected
+
+### Miscellaneous
+- Added some minor UI animations to the shortcut editor to make it clearer when new input elements become available
 
 ## Version 2.21.1
 
@@ -490,12 +490,12 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - When sharing files into the app, a loading indicator is now displayed while the files are being processed
 - There is now some debouncing to avoid accidentally executing the same shortcut twice in a row
 
-### Miscellaneous
-- The language selector is temporarily removed from the app, as a side-effect of a mitigation of another bug. Hopefully it will be back soon.
-
 ### Bugfixes
 - Selecting text from the HTTP response in the fullscreen window no longer crashes the app
 - The menu on the Import/Export screen no longer shows a "Sort" option which doesn't do anything
+
+### Miscellaneous
+- The language selector is temporarily removed from the app, as a side-effect of a mitigation of another bug. Hopefully it will be back soon.
 
 ## Version 2.21.0
 
@@ -521,14 +521,14 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - When doing a partial export of shortcuts, only those custom icons, variables and client certificates that are really needed are included in the exported file
 - It is now possible to add the same shortcut multiple times to a multi-shortcut, and additionally it is now possible to add multiple shortcuts at once
 
-### Miscellaneous
-- The option to change the app's theme is disabled when dark mode is on
-- Stetho (for network traffic inspection via Chrome) was removed from the app, as it was not working properly and posed a potential security risk
-
 ### Bugfixes
 - Inserting a variable placeholder into the "Message" field for response display settings works again as expected
 - The User-Agent request header no longer contains mismatched parentheses
 - For languages written right-to-left (specifically Hebrew) the variable picker button no longer overlaps with other views
+
+### Miscellaneous
+- The option to change the app's theme is disabled when dark mode is on
+- Stetho (for network traffic inspection via Chrome) was removed from the app, as it was not working properly and posed a potential security risk
 
 ## Version 2.19.0
 
@@ -538,13 +538,13 @@ A lot of things were added, changed and reworked in this version. It is very lik
 ### Improvements
 - When exporting, you can now select which shortcuts to export, allowing for partial exports
 
-### Miscellaneous
-- Added helper texts to the variable creation dialog to better explain the different types of variables and their use
-
 ### Bugfixes
 - When a request fails, the response is now displayed according to the configured display type for errors, instead of the one for successful requests
 - Newly created shortcuts are no longer placed into the first category if that category is hidden
 - Multiple-Choice variables can now be configured again to allow selecting more than one value at time
+
+### Miscellaneous
+- Added helper texts to the variable creation dialog to better explain the different types of variables and their use
 
 ## Version 2.18.0
 
@@ -556,16 +556,16 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - You can now open the "Import from URL" dialog directly via deep-linking, allowing for convenient two-click importing of shortcuts from tutorials and template collection websites
 - It is now possible to easily sort all variables alphabetically
 
-### Miscellaneous
-- Minor reorganization of the shortcut editor layout
-- Added a helper text that explains what toasts are
-- Moved the "Become a Translator" call-to-action up to a more prominent position
-
 ### Bugfixes
 - All webviews (e.g. for displaying responses) are now properly stopped when their window is closed, preventing them from using resources in the background
 - In Scripting, the `response` variable is always defined. When no response is available, it is set to `null` instead of being undefined.
 - Headers without a space between the name and value are now correctly imported from cURL
 - The order of launcher shortcuts is now updated immediately when shortcuts are moved around within a category
+
+### Miscellaneous
+- Minor reorganization of the shortcut editor layout
+- Added a helper text that explains what toasts are
+- Moved the "Become a Translator" call-to-action up to a more prominent position
 
 ## Version 2.17.0
 
@@ -615,14 +615,14 @@ A lot of things were added, changed and reworked in this version. It is very lik
 - Categories can now have a custom background color
 - The `changeDescription` function was added to allow programmatically updating a shortcut's description
 
+### Bugfixes
+- When using the "-F" parameter in a cURL import, the method is now correctly set to POST instead of GET
+- When the window displaying a response is closed, the app's main screen should now no longer show up unexpectedly
+
 ### Miscellaneous
 - The "Client Certificate" option was moved to the "Authentication" section in the shortcut editor
 - In categories that use the "Wallpaper" background, shortcut labels now have a drop shadow for better readability
 - Various small tweaks to performance, app stability and UX improvements
-
-### Bugfixes
-- When using the "-F" parameter in a cURL import, the method is now correctly set to POST instead of GET
-- When the window displaying a response is closed, the app's main screen should now no longer show up unexpectedly
 
 ## Version 2.14.1
 
@@ -672,13 +672,6 @@ This version includes a massive refactoring under the hood, so there's a good ch
 - Added `getWifiSSID` function to allow querying the SSID of the currently connected Wi-Fi network
 - Renamed `triggerShortcut` to `enqueueShortcut` to make it clearer what it does
 
-### Miscellaneous
-- Toast messages now support basic HTML tags for formatting
-- Improved the UX for the Request Body input box
-- Improved the internal data store, so that the app should take up a bit less storage on the device
-- Improved text sizes and colors for better readability in various places
-- Added Indonesian translation
-
 ### Bugfixes
 - Quick Settings Tile shortcuts are now sorted alphabetically instead of appearing in no particular order
 - Custom icons are now loaded asynchronously and more memory-efficiently, which should reduce the risk of running out of memory when loading many icons at once
@@ -687,6 +680,13 @@ This version includes a massive refactoring under the hood, so there's a good ch
 - Reduced likelihood of old response window showing up again when triggering a new shortcut
 - Removed "Multiline" checkbox from Number Input and Password Input variable types as it had no effect and was never supposed to be there
 - Improved the handling of large HTTP responses. The app is now less likely to crash when encountering these
+
+### Miscellaneous
+- Toast messages now support basic HTML tags for formatting
+- Improved the UX for the Request Body input box
+- Improved the internal data store, so that the app should take up a bit less storage on the device
+- Improved text sizes and colors for better readability in various places
+- Added Indonesian translation
 
 ## Version 2.12.0
 
@@ -707,13 +707,13 @@ This version includes a massive refactoring under the hood, so there's a good ch
 
 For convenience, there is now a `response.getHeader(headerName)` and a `response.getCookie(cookieName)` function which can be used to retrieve a specific header or cookie by name. If there are multiple headers or cookies with the given name, the last one will be returned.
 
-### Miscellaneous
-- When choosing an icon for a shortcut, it is now possible to select a custom icon that was previously used
-- Added partial Japanese translation
-
 ### Bugfixes
 - Passing variable values to a shortcut via the `triggerShortcut` now passes the correct values again, without an unwanted prefix
 - Fixed incorrect error message of `wakeOnLan` function
+
+### Miscellaneous
+- When choosing an icon for a shortcut, it is now possible to select a custom icon that was previously used
+- Added partial Japanese translation
 
 ## Version 2.10.0
 
@@ -728,14 +728,14 @@ Furthermore, this version introduces a breaking change to the Scripting feature,
 - There are 2 new functions `toString` and `toHexString` which allow to convert `Uint8Array` into strings
 - The Code Snippet picker now also allows easily adding "if { }" and "if { } else { }" blocks
 
+### Bugfixes:
+- The response headers can now be properly accessed again via Scripting
+- Form parameters can now have empty values
+
 ### Miscellaneous
 - The "Misc Settings" section was renamed to "Trigger & Execution Settings"
 - Some error messages, in particular around import & export, were improved
 - The color picker dialog for `Color` variables was swapped out for a different, easier-to-use component
-
-### Bugfixes:
-- The response headers can now be properly accessed again via Scripting
-- Form parameters can now have empty values
 
 ## Version 2.9.0
 
@@ -745,11 +745,11 @@ Furthermore, this version introduces a breaking change to the Scripting feature,
 - The `triggerShortcut` function now supports a 3rd argument which can be used to specify a custom delay (in milliseconds)
 - Multiple Choice variables can now be configured to allow selecting multiple options
 
-### Miscellaneous
-- Prepared the app for compatibility with Android 12
-
 ### Bugfixes
 - The `triggerShortcut` function can now be used to re-trigger the current shortcut itself, and do so indefinitely for as long as a delay larger than 500 milliseconds is specified.
+
+### Miscellaneous
+- Prepared the app for compatibility with Android 12
 
 ## Version 2.8.0
 
@@ -761,7 +761,6 @@ Furthermore, this version introduces a breaking change to the Scripting feature,
 - When importing from cURL, the method is now set to POST when there is a request body, instead of falling back to GET and ignoring the body
 - When using the "Number Input" variable type, it is no longer possible to enter invalid numbers
 - When editing variables, the checkbox values are now also taken into account when detecting whether there are unsaved changes
-
 
 ## Version 2.7.0
 
