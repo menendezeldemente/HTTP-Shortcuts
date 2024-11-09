@@ -38,6 +38,8 @@
     <!-- Label above dropdown in "Response Handling" section of shortcut editor, lets the user define what the custom message that they enter should be treated as -->
     <!-- Label above dropdown in editor, to select what should happen when the HTTP request fails -->
     <!-- Label for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
+    <!-- Label for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
+    <!-- Subtitle for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
     <!-- Label for checkbox in editor, to select whether the HTTP response (if it is text) should be displayed using a monospace font -->
     <!-- Subtitle for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
     <!-- Shortcut dropdown option: Place shortcut on home screen -->
@@ -1214,4 +1216,6 @@ Todos los atajos dentro de esta se eliminaran también.</string>
     <!-- Action, shown on dropdown when editing a shortcut, for allowing to show a hidden shortcut -->
     <!-- Message, shown in snackbar, to confirm to the user that a shortcut was hidden -->
     <!-- Message, shown in snackbar, to confirm to the user that a shortcut is no longer hidden and visible again -->
+    <!-- Title for dialog, when selecting a directory (to be used in Scripting) -->
+    <!-- Warning message shown to user when saving their first shortcut, but not having opened the Response Handling screen -->
 </resources>

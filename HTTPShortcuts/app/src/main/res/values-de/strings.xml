@@ -48,6 +48,10 @@
     <string name="label_response_on_failure">Bei Fehler</string>
     <!-- Label for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
     <string name="label_include_meta_information">Meta-Informationen anzeigen</string>
+    <!-- Label for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
+    <string name="label_enable_javascript_in_webview">JavaScript aktivieren (experimentell)</string>
+    <!-- Subtitle for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
+    <string name="subtitle_enable_javascript_in_webview">Ermöglicht die Verwendung von JavaScript in der angezeigten HTML-Response. Dies funktioniert möglicherweise bei manchen Webseiten nicht.</string>
     <!-- Label for checkbox in editor, to select whether the HTTP response (if it is text) should be displayed using a monospace font -->
     <string name="label_monospace_response">Monospace-Schriftart für Text verwenden</string>
     <!-- Subtitle for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
@@ -1713,4 +1717,8 @@ Optionen für selbst-signierte Zertifikate findest du im Shortcut-Editor unter �
     <string name="message_shortcut_hidden">Shortcut verborgen.</string>
     <!-- Message, shown in snackbar, to confirm to the user that a shortcut is no longer hidden and visible again -->
     <string name="message_shortcut_visible">Shortcut nicht mehr verborgen.</string>
+    <!-- Title for dialog, when selecting a directory (to be used in Scripting) -->
+    <string name="title_select_working_directory">Verzeichnis auswählen</string>
+    <!-- Warning message shown to user when saving their first shortcut, but not having opened the Response Handling screen -->
+    <string name="warning_make_aware_of_response_handling">Schau dir auch die Optionen unter \“%s\” an. Dort kannst du konfigurieren, wie und ob die HTTP-Response angezeigt werden soll.</string>
 </resources>

@@ -48,6 +48,8 @@
     <string name="label_response_on_failure">In caso di Errore</string>
     <!-- Label for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
     <string name="label_include_meta_information">Mostra Meta Informazioni</string>
+    <!-- Label for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
+    <!-- Subtitle for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
     <!-- Label for checkbox in editor, to select whether the HTTP response (if it is text) should be displayed using a monospace font -->
     <string name="label_monospace_response">Visualizzare il testo utilizzando un carattere monospazio</string>
     <!-- Subtitle for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
@@ -1707,4 +1709,6 @@ Per i certificati autofirmati, controllare invece la sezione \"%s\" della scorci
     <string name="message_shortcut_hidden">Shortcut hidden.</string>
     <!-- Message, shown in snackbar, to confirm to the user that a shortcut is no longer hidden and visible again -->
     <string name="message_shortcut_visible">Scorciatoia non più nascosta.</string>
+    <!-- Title for dialog, when selecting a directory (to be used in Scripting) -->
+    <!-- Warning message shown to user when saving their first shortcut, but not having opened the Response Handling screen -->
 </resources>

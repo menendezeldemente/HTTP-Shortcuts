@@ -48,6 +48,10 @@
     <string name="label_response_on_failure">失败时</string>
     <!-- Label for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
     <string name="label_include_meta_information">显示元数据信息（如，响应头）</string>
+    <!-- Label for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
+    <string name="label_enable_javascript_in_webview">启用 JavaScript (实验性)</string>
+    <!-- Subtitle for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
+    <string name="subtitle_enable_javascript_in_webview">允许在显示的 HTML 响应体中使用 JavaScript。对于某些网页可能无法使用。</string>
     <!-- Label for checkbox in editor, to select whether the HTTP response (if it is text) should be displayed using a monospace font -->
     <string name="label_monospace_response">使用等宽字体显示文本</string>
     <!-- Subtitle for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
@@ -1684,4 +1688,8 @@
     <string name="message_shortcut_hidden">已隐藏快捷方式。</string>
     <!-- Message, shown in snackbar, to confirm to the user that a shortcut is no longer hidden and visible again -->
     <string name="message_shortcut_visible">快捷方式不再隐藏。</string>
+    <!-- Title for dialog, when selecting a directory (to be used in Scripting) -->
+    <string name="title_select_working_directory">选择目录</string>
+    <!-- Warning message shown to user when saving their first shortcut, but not having opened the Response Handling screen -->
+    <string name="warning_make_aware_of_response_handling">请确保同时检查\"%s\"部分，您可以在那里配置如何或者是否应该显示 HTTP 响应。</string>
 </resources>

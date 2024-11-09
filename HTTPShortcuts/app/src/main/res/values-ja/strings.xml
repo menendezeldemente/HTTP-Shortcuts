@@ -48,6 +48,10 @@
     <string name="label_response_on_failure">失敗の時</string>
     <!-- Label for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
     <string name="label_include_meta_information">メタ情報を表示</string>
+    <!-- Label for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
+    <string name="label_enable_javascript_in_webview">JavaScriptを有効 (実験的)</string>
+    <!-- Subtitle for checkbox in editor, to select whether the webview that displays the response body should allow the execution of JavaScript code -->
+    <string name="subtitle_enable_javascript_in_webview">表示されている HTML レスポンスボディで JavaScript を使用できます。一部の Web ページでは動作しない可能性があります。</string>
     <!-- Label for checkbox in editor, to select whether the HTTP response (if it is text) should be displayed using a monospace font -->
     <string name="label_monospace_response">等幅フォントでテキストを表示</string>
     <!-- Subtitle for checkbox in editor, to select whether in addition to the HTTP response the app should also display some meta information (e.g. headers) -->
@@ -1695,4 +1699,8 @@
     <string name="message_shortcut_hidden">ショートカットが非表示</string>
     <!-- Message, shown in snackbar, to confirm to the user that a shortcut is no longer hidden and visible again -->
     <string name="message_shortcut_visible">今後ショートカットは非表示になりません</string>
+    <!-- Title for dialog, when selecting a directory (to be used in Scripting) -->
+    <string name="title_select_working_directory">ディレクトリを選択する</string>
+    <!-- Warning message shown to user when saving their first shortcut, but not having opened the Response Handling screen -->
+    <string name="warning_make_aware_of_response_handling">「%s」セクションも確認してください。ここでは、HTTP レスポンスが表示されるかどうか、または表示方法を設定できます。</string>
 </resources>
