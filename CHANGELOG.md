@@ -1,3 +1,17 @@
+## Version 3.20.0
+
+### Improvements
+- It is now possible to enable JavaScript as part of the response display window. This feature is experimental and it may not work for every website.
+- When selecting the "Read from File" or "Write to File" options from the Code Snippet picker in Scripting, there is now a picker to select the directory that should be used.
+
+### Miscellaneous
+- When creating your very first shortcut, a useful hint is now shown if you haven't opened the "Response Handling" section
+- Removed some broken icons
+
+### Bugfixes
+- When exporting shortcuts that use the `getDirectory()` function in their Scripting, the directories are now also included in the export.
+- The F-Droid build, which stopped working in version 3.19.0, should now work again
+
 ## Version 3.19.0
 
 ### Improvements
